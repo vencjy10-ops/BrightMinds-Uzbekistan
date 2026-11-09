@@ -1,0 +1,75 @@
+{
+  "name": "User",
+  "type": "object",
+  "properties": {
+    "role": {
+      "type": "string",
+      "description": "The role of the user in the app",
+      "enum": [
+        "admin",
+        "user"
+      ]
+    },
+    "read_notification_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Ids of cabinet notifications this student has already read"
+    },
+    "email_alerts": {
+      "type": "boolean",
+      "description": "Whether the student wants deadline reminder emails"
+    },
+    "first_name": {
+      "type": "string",
+      "description": "Student first name, collected at sign-up"
+    },
+    "last_name": {
+      "type": "string",
+      "description": "Student last name, optional"
+    },
+    "gender": {
+      "type": "string",
+      "enum": [
+        "male",
+        "female"
+      ],
+      "description": "Used to personalise the AI advisor persona"
+    },
+    "city": {
+      "type": "string",
+      "description": "Region or city in Uzbekistan"
+    },
+    "region": {
+      "type": "string",
+      "description": "Student region, separate from city"
+    },
+    "preferred_language": {
+      "type": "string",
+      "description": "Student-selected existing interface locale ID"
+    },
+    "educational_interests": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Student-selected educational interests"
+    },
+    "country": {
+      "type": "string",
+      "description": "Country of residence. Optional. Used only to show whether programs fit the student"
+    },
+    "age_range": {
+      "type": "string",
+      "description": "Optional age range: under_13, 13_15, 16_17 or 18_plus. Not an exact birth date"
+    },
+    "grade": {
+      "type": "number",
+      "description": "Optional school grade 1-12, or 13 for university or later"
+    }
+  },
+  "required": [
+    "role"
+  ]
+}

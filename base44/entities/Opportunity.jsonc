@@ -1,0 +1,151 @@
+{
+  "name": "Opportunity",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Program name, e.g. Chevening Scholarship"
+    },
+    "organization": {
+      "type": "string",
+      "description": "University, foundation or organisation offering the program"
+    },
+    "category": {
+      "type": "string",
+      "enum": [
+        "course",
+        "scholarship",
+        "volunteering",
+        "competition",
+        "forum"
+      ],
+      "description": "Program type"
+    },
+    "subject": {
+      "type": "string",
+      "description": "Main subject or skill covered, e.g. Python, IELTS, Mathematics"
+    },
+    "tags": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Search keywords, e.g. python, beginners, online"
+    },
+    "language": {
+      "type": "string",
+      "description": "Language the program is taught in, e.g. English"
+    },
+    "cost_note": {
+      "type": "string",
+      "description": "What is free and what may be paid, e.g. Free to audit; certificate is paid"
+    },
+    "verification": {
+      "type": "string",
+      "enum": [
+        "verified",
+        "unverified"
+      ],
+      "default": "unverified",
+      "description": "Whether the official link was checked to be live"
+    },
+    "min_age": {
+      "type": "number",
+      "description": "Minimum applicant age"
+    },
+    "format": {
+      "type": "string",
+      "enum": [
+        "online",
+        "onsite",
+        "hybrid"
+      ],
+      "description": "How the program is delivered"
+    },
+    "description": {
+      "type": "string",
+      "description": "What the program offers and who it is for"
+    },
+    "link": {
+      "type": "string",
+      "description": "Official application or information page"
+    },
+    "country": {
+      "type": "string",
+      "description": "Primary destination country of the program, used by the map explorer"
+    },
+    "max_age": {
+      "type": "number",
+      "description": "Maximum applicant age, only if the organizer states one"
+    },
+    "grade_min": {
+      "type": "number",
+      "description": "Lowest school grade accepted, only if stated by the organizer"
+    },
+    "grade_max": {
+      "type": "number",
+      "description": "Highest school grade accepted, only if stated by the organizer"
+    },
+    "eligible_countries": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Countries whose residents may apply. Use Global only if the organizer says it is open worldwide. Empty means not confirmed"
+    },
+    "education_level": {
+      "type": "string",
+      "enum": [
+        "school",
+        "undergraduate",
+        "graduate",
+        "any"
+      ],
+      "description": "Who the program is for, only if stated by the organizer"
+    },
+    "deadline": {
+      "type": "string",
+      "description": "Next application deadline as YYYY-MM-DD, only if confirmed on the official page"
+    },
+    "funding_type": {
+      "type": "string",
+      "enum": [
+        "full",
+        "partial",
+        "stipend",
+        "fee_waiver",
+        "none",
+        "unknown"
+      ],
+      "description": "Funding confirmed by the official page. Unknown if not confirmed"
+    },
+    "last_verified": {
+      "type": "string",
+      "description": "Date (YYYY-MM-DD) the official page was last checked by a person"
+    }
+  },
+  "required": [
+    "title",
+    "organization",
+    "category",
+    "link"
+  ],
+  "rls": {
+    "read": {},
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}
